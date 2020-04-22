@@ -12,12 +12,9 @@ export class Hal1Component implements OnInit {
 
   ngOnInit() {
   }
-  listJurusan = []
-  temp = []
+ 
   submit(a, b){
-    this.temp = [a, b]
-    this.listJurusan.push(this.temp);
-    this.router.navigate(['/hal2', this.listJurusan])
+    this.router.navigate(['/hal2', a, b])
   }
 
 }

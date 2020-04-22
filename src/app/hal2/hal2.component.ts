@@ -9,11 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 export class Hal2Component implements OnInit {
 
   constructor(private route : ActivatedRoute) { }
-  list = []
+  listJurusan = []
+  temp = []
   ngOnInit() {
     let jur = this.route.snapshot.paramMap.get('jurusan');
     let jelas = this.route.snapshot.paramMap.get('penjelasan');
-    this.list=temp;
+    this.temp=[jur, jelas];
+    this.listJurusan.push(this.temp);
   }
 
 }
