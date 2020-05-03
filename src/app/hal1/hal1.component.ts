@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobSerService } from './glob-ser.service';
 import { Route, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-hal1',
@@ -8,13 +10,22 @@ import { Route, Router } from '@angular/router';
 })
 export class Hal1Component implements OnInit {
 
-  constructor(private router : Router) { }
+  datadariglob : any;
+  temp = [];
+  id : any;
+
+  constructor (public variabelglobal : GlobSerService) {
+    this.datadariglob = this.variabelglobal.getData();
+    this.id = this.variabelglobal.getID();
+    console.log(this.datadariglob);
+  }
 
   ngOnInit() {
   }
  
   submit(a, b){
-    this.router.navigate(['/hal2', a, b])
+    this.temp = [++this.id, a, b];
+    this.variabelglobal.setData(this.temp);
   }
 
 }

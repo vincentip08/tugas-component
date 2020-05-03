@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { GlobSerService } from './glob-ser.service';
 
 @Component({
   selector: 'app-hal2',
@@ -8,14 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Hal2Component implements OnInit {
 
-  constructor(private route : ActivatedRoute) { }
   listJurusan = []
   temp = []
+
+  constructor (public  variabelglobal : GlobSerService) {}
+
   ngOnInit() {
-    let jur = this.route.snapshot.paramMap.get('jurusan');
-    let jelas = this.route.snapshot.paramMap.get('penjelasan');
-    this.temp=[jur, jelas];
-    this.listJurusan.push(this.temp);
+    this.listJurusan = this.variabelglobal.getData();
   }
 
 }
