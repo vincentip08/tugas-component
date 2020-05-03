@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobSerService } from './glob-ser.service';
+import { GlobSerService } from '../glob-ser.service';
 
 @Component({
   selector: 'app-hal2',
